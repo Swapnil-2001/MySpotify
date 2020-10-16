@@ -1,0 +1,9 @@
+export const SET_SENTIMENT = 'SET_SENTIMENT';
+export const SET_HAPPY_SONGS = 'SET_HAPPY_SONGS';
+export const SET_DANCE_SONGS = 'SET_DANCE_SONGS';
+export const SET_SAD_SONGS = 'SET_SAD_SONGS';
+export const SET_MODERATE_SONGS = 'SET_MODERATE_SONGS';
+export const SET_FETCHED = 'SET_FETCHED';
+export const SET_SIMILAR = 'SET_SIMILAR';
+export const SET_FETCHED_SIMILAR = 'SET_FETCHED_SIMILAR';
+export const SET_USER = 'SET_USER';
