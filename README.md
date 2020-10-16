@@ -1,4 +1,4 @@
-Replay your favorites, find new artists similar to the ones you love, explore top tracks by your favorite artists, find the latest songs you have listened to filtered by mood, all with MySpotify. [Live demo](https://myspotify-aa2ed.web.app/) 
+Revisit your Spotify favorites, find new artists similar to the ones you love, explore top tracks by your favorite artists, find the latest songs you have listened to filtered by mood, all with MySpotify. [Live demo](https://myspotify-aa2ed.web.app/) 
 
 I've used Redux for state management. The app is entirely client-side. It makes use of the [Spotify Web API](https://developer.spotify.com/documentation/web-api/) to access data. The design of the app was largely inspired by [Replayify](https://replayify.com/).
 
