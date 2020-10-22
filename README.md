@@ -7,6 +7,8 @@ I've used Redux for state management. The app is entirely client-side. It makes 
 
 Is there some cool feature you'd like added? :star_struck: Or did you find a bug in the code somewhere? :grimacing: Or would you like to improve the file structure? :+1: Whatever it may be, don't hesitate to start a conversation. Feel free to open an issue. :innocent:
 
+And do consider starring the repo if you like the project! :innocent:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
