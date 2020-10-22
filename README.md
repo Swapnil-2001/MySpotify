@@ -1,3 +1,9 @@
+# MySpotify - A song for every mood
+
+<br />
+<br />
+
+
 <p align="center"><img width="450px"  src="https://images.indianexpress.com/2020/05/spotify-bloom-1200.jpg" alt="spotify" /></p>
 
 **Revisit your Spotify favorites, find new artists similar to the ones you love, explore top tracks by your favorite artists, find the latest songs you have listened to filtered by mood, all with MySpotify!** [Live demo](https://myspotify-aa2ed.web.app/) 
