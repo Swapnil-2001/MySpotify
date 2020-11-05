@@ -1,6 +1,29 @@
-Revisit your Spotify favorites, find new artists similar to the ones you love, explore top tracks by your favorite artists, find the latest songs you have listened to filtered by mood, all with MySpotify. [Live demo](https://myspotify-aa2ed.web.app/) 
+# MySpotify - A song for every mood
+
+<br />
+<br />
+
+
+<p align="center"><img width="450px"  src="https://images.indianexpress.com/2020/05/spotify-bloom-1200.jpg" alt="spotify" /></p>
+
+<br />
+
+**Revisit your Spotify favorites, find new artists similar to the ones you love, explore top tracks by your favorite artists, find the latest songs you have listened to filtered by mood, all with MySpotify!** [Live demo](https://myspotify-aa2ed.web.app/) 
+
+<br />
+
+*All you need is a Spotify account, and you're good to go!* And the app is a **Progressive Web App**, which means you can also, if you want, install it into your mobile device or desktop.
+
 
 I've used Redux for state management. The app is entirely client-side. It makes use of the [Spotify Web API](https://developer.spotify.com/documentation/web-api/) to access data. Hosting is done on [Firebase](https://firebase.google.com/). The design of the app was largely inspired by [Replayify](https://replayify.com/).
+
+<br />
+
+Is there some cool feature you'd like added? :star_struck: Or did you find a bug in the code somewhere? :grimacing: Or would you like to improve the file structure? :+1: Whatever it may be, don't hesitate to start a conversation. Feel free to open an issue. :innocent:
+
+And do consider starring the repo if you like the project! :innocent:
+
+<br />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
