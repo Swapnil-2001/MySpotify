@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Suspense} from 'react';
 import * as SpotifyFunctions from '../spotifyFunctions.js'
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import SearchTopTracks from '../search/SearchTopTracks';
-import happyMusic from '../../images/happyMusic.jpg';
+import fav from '../../images/favorite.png';
+
+const SearchTopTracks = React.lazy(() => import('../search/SearchTopTracks'));
 
 function Top(props) {
   const { isValidSession, history } = props;
@@ -51,21 +51,18 @@ function Top(props) {
 
   return (
     <div>
-      <Link to='/dashboard' style={{ textDecoration: 'none', color: '#778298' }}>
-        <div className="fav__songs__cover__text">
-          <h1 style={{ fontWeight: '800', fontSize: '2.8rem' }}>Your Favorite Tracks</h1>
-        </div>
-      </Link>
       <div className='fav__songs__div'>
-        <img src={happyMusic} alt="music" className="fav__songs__cover" />
+        <img src={fav} alt="music" className="fav__songs__cover" />
       </div>
-      {fetched &&
-        <SearchTopTracks
-          result={result}
-          selectedCategory={selectedCategory}
-          setCategory={setSelectedCategory}
-        />
-      }
+      {fetched && (
+        <Suspense fallback={<div></div>}>
+          <SearchTopTracks
+            result={result}
+            selectedCategory={selectedCategory}
+            setCategory={setSelectedCategory}
+          />
+        </Suspense>
+      )}
     </div>
   )
 }

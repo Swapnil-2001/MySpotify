@@ -1,5 +1,6 @@
-import React from 'react';
-import TopTracksCards from './TopTracksCards';
+import React, { Suspense } from 'react';
+
+const TopTracksCards = React.lazy(() => import('./TopTracksCards'));
 
 function TopTracksResult({ artists }) {
   return (
@@ -9,11 +10,18 @@ function TopTracksResult({ artists }) {
           {artists.map((artist, index) => {
             const [id, name, image] = artist;
             return (
-              <div style={{ marginBottom: '30px' }}>
-                <div className="each__artist">
-                  <h1 style={{ fontWeight: '700' }}>By {name}</h1>
+              <div key={index}>
+                <div className="fav__artist">
+                  <div style={{ flex: '1' }}>
+                    <img className="fav__artist__image" src={image} alt="artist" />
+                  </div>
+                  <div className="each__artist">
+                    By <h1>{name}</h1>
+                  </div>
                 </div>
-                <TopTracksCards id={id} image={image} />
+                <Suspense fallback={<div></div>}>
+                  <TopTracksCards id={id} />
+                </Suspense>
               </div>
             );
           })}

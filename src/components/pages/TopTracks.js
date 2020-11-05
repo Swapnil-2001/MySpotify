@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Suspense} from 'react';
 import * as SpotifyFunctions from '../spotifyFunctions.js'
 import { connect } from 'react-redux';
-import TopTracksResult from '../search/TopTracksResult';
+import perform from '../../images/perform.png';
+
+const TopTracksResult = React.lazy(() => import('../search/TopTracksResult'));
 
 function TopTracks(props) {
   const { isValidSession, history } = props;
@@ -40,9 +42,11 @@ function TopTracks(props) {
   return (
     <div>
       {fetched && (
-        <div style={{ textAlign: 'center', padding: '0 40px' }}>
-          <h1 className="top__tracks__text">Sit back and enjoy some of the best tracks by your favorite artists.</h1>
-          <TopTracksResult artists={favArtists} />
+        <div style={{ textAlign: 'center', backgroundImage: 'linear-gradient(to right, rgba(47, 50, 51, 0.5), rgba(47, 50, 51, 1))' }}>
+          <img src={perform} alt="perform" className="favorite__banner" />
+          <Suspense fallback={<div></div>}>
+            <TopTracksResult artists={favArtists} />
+          </Suspense>
         </div>
       )}
     </div>

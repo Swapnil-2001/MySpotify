@@ -4,7 +4,7 @@ import Fade from 'react-reveal/Fade';
 import music from '../../images/music.jpeg';
 import * as SpotifyFunctions from '../spotifyFunctions.js'
 
-function TopTracksCards({ id, image }) {
+function TopTracksCards({ id }) {
   const [topTracks, setTracks] = useState([])
   const [received, setReceived] = useState(false);
   useEffect(() => {
@@ -25,10 +25,9 @@ function TopTracksCards({ id, image }) {
     <React.Fragment>
       {received && (
         <div>
-          <img src={image} alt="happy" className="artist" />
           {tracks.map((song, index) => {
             return (
-              <div className='container__div'>
+              <div key={index} className='container__div'>
                 <Fade bottom>
                   <a href={song.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="track-history__item" style={{ textDecoration: 'none' }} >
                     <div className="order-number">{index + 1}</div>

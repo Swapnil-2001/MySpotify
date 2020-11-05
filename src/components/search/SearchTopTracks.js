@@ -35,7 +35,7 @@ function SearchTopTracks(props) {
       </div>
       <div className={`${selectedCategory === 'all' ? '' : 'hide'}`}>
         {topTracks && topTracks.map((track, index) => (
-          <div key={index} className='container__div'>
+          <div key={index} className='container__div__fav'>
             <Fade bottom>
               <a href={track.album.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="track-history__item" style={{ textDecoration: 'none' }} >
                 <div className="order-number">{index + 1}</div>

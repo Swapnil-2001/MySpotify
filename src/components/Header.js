@@ -1,10 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 
-function Header({ image, name, dispatch }) {
+function Header({ image, name }) {
   const hour = new Date().getHours();
   let greeting = '';
   if (hour > 5 && hour < 12) {
@@ -31,4 +30,4 @@ function Header({ image, name, dispatch }) {
   )
 }
 
-export default connect()(Header);
+export default React.memo(Header);

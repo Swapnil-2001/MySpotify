@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,37 +7,133 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  background-color: #d2f5e3;
-  font-family: 'Gotham', -apple-system, system-ui, BlinkMacSystemFont,
+  background-color: white;
+  font-family: 'Poppins', -apple-system, system-ui, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 20px;
   letter-spacing: 1px;
-  color: #778298;
+  color: #333456;
 }
 
-.btn {
-  letter-spacing: 1px;
+/* DASHBOARD */
+
+.banner__div {
+  background-image: linear-gradient(145deg, rgba(63, 63, 68, 1), rgba(63, 63, 68, 0.75));
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.heading-div {
-  text-align: center;
+.banner {
+  width: 65%;
 }
 
-.profile__pic {
-  border-radius: 50%;
-  border: 2px solid #778298;
-  object-fit: contain;
-  width: 200px;
-  margin-bottom: 3rem;
+.greeting {
+  margin: 20px;
+  line-height: 3.5rem;
+  color: #f7f7f7;
+  font-weight: 700;
+}
+
+.dashboard__banner {
+  background-color: #fae0df;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard__intro {
+  color: #389393;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+  padding-left: 50px;
+}
+
+.dashboard__intro > div{
+  flex: 1;
+  padding-right: 50px;
+  margin-bottom: 40px;
+}
+
+.dashboard__image {
+  width: 100%;
 }
 
 .hamburger {
   object-fit: contain;
   width: 60px;
   cursor: pointer;
+}
+
+/* DASHBOARD OVER */
+
+
+
+
+/* FAV ARTISTS */
+
+.fav__artists__div {
+  margin-top: 100px;
+  color: #f7f7f7;
+}
+
+.fav__artist {
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+}
+
+.fav__artist__image {
+  border: 3px solid #f7f7f7;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(10px 10px 10px #222);
+  width: 40%;
+  object-fit: contain;
+}
+
+.each__artist {
+  flex: 1;
+  text-align: left;
+}
+
+.each__artist > h1 {
+  text-shadow: black 2px 0 10px;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+/* FAV ARTISTS OVER */
+
+
+
+
+.favorite__banner {
+  width: 55%;
+  object-fit: contain;
+}
+
+.moodButtons__div {
+  background-image: linear-gradient(to bottom, rgba(250, 240, 175, 0.5), rgba(250, 240, 175, 1));
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn {
+  letter-spacing: 1px;
+}
+
+.active {
+  border-radius: 12px;
+  border: 3px solid #99a8b2;
+  background-color: #ecf4f3;
+}
+
+.heading-div {
+  text-align: center;
 }
 
 .menu__hamburger {
@@ -55,12 +153,6 @@ body {
   -webkit-box-orient: vertical;
 }
 
-.dashboard__intro {
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 35px;
-}
-
 .top__tracks__text {
   margin-top: 60px;
 }
@@ -74,12 +166,6 @@ body {
 
 .artists__div {
   text-align: center;
-}
-
-.each__artist {
-  text-align: center;
-  margin: 50px 0;
-  color: #00587a;
 }
 
 .menu__links {
@@ -156,11 +242,6 @@ body {
   font-size: 1.2rem;
 }
 
-.main {
-  width: 90%;
-  margin: 2rem auto;
-}
-
 .form-control {
   font-size: 1.2rem;
 }
@@ -178,24 +259,44 @@ body {
   display: none;
 }
 
-.active {
-  border: 2px solid #566273;
-}
-
 .fav__text {
   font-size: 2rem;
   font-weight: 700;
-  margin: 30px;
+  padding: 60px 100px;
   text-align: center;
-  color: #5c969e;
+  color: #f7f7f7;
+}
+
+.buttons__heading {
+  text-align: center;
+  margin: 0 30px;
+  margin-top: 3rem;
+  color: #7e8a97;
+}
+
+.similar__img {
+  width: 70%;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(10px 10px 10px #222);
 }
 
 .similar__button {
+  border: 2px solid #f7f7f7;
+  border-radius: 25px;
+  color: #f7f7f7;
   font-weight: 700;
   font-size: 1.1rem;
+  margin: 50px 0;
+}
+
+.similar__button:hover {
+  background-color: #f7f7f7;
+  color: #2f3233;
 }
 
 .fav__button {
+  display: flex;
+  align-items: center;
   text-align: center;
   margin: 20px;
   margin-top: 30px;
@@ -261,7 +362,7 @@ body {
 }
 
 .search-buttons {
-  margin: 2rem 0;
+  margin: 3rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -277,7 +378,7 @@ body {
 
 .search-buttons-top {
   background-color: white;
-  padding: 10px 20px;
+  padding: 15px 40px;
   margin: 0;
 }
 
@@ -291,7 +392,7 @@ body {
 
 .search-buttons-top .btn:focus {
   box-shadow: none;
-  color: #323232;
+  color: #778298;
 }
 
 .search-buttons-top .btn:hover {
@@ -300,6 +401,14 @@ body {
 
 .search-buttons .btn:focus {
   box-shadow: none;
+}
+
+.container__div__fav {
+  background-color: white;
+}
+
+.container__div__fav :hover {
+  background-color: #eeeeee;
 }
 
 .fav__songs__cover__text {
@@ -311,18 +420,18 @@ body {
 }
 
 .fav__songs__div {
-  background-color: white;
+  background-image: linear-gradient(to right, rgba(63, 63, 68, 1), rgba(63, 63, 68, 0.75));
+  text-align: center;
 }
 
 .fav__songs__cover {
   position: relative;
-  width: 100%;
+  width: 70%;
   object-fit: contain;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%);
 }
 
 .container__div {
+  margin: 0 50px;
   background-color: white;
 }
 
@@ -380,6 +489,15 @@ body {
 }
 
 @media (max-width: 920px) {
+  .banner__div {
+    flex-direction: column;
+  }
+  .banner {
+    width: 100%;
+  }
+  .greeting {
+    padding: 30px;
+  }
   #flyoutMenu {
     width: 60vw;
   }
@@ -388,14 +506,53 @@ body {
 @media (min-width: 769px) {
   .track-history__item {
     padding: 1em 1.5em;
-    margin: 0 -1.8em; }
+  }
   .track__track-name {
-    font-weight: 500; }
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 769px) {
+  .container__div {
+    margin: 0;
+  }
+  .dashboard__intro {
+    flex-direction: column;
+    font-size: 2.2rem;
+  }
+  .dashboard__intro > div{
+    text-align: center;
+  }
+  .dashboard__image {
+    width: 70%;
+  }
+  .fav__button {
+    flex-direction: column;
+  }
+  .fav__text {
+    padding: 50px 20px;
+  }
+  .fav__artist {
+    flex-direction: column;
+  }
+  .each__artist {
+    margin-top: 30px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .search-buttons {
     flex-direction: column;
+  }
+  .greeting {
+    font-size: 1.5rem;
+    padding: 25px;
+  }
+  .dashboard__image {
+    width: 85%;
+  }
+  .each__artist > h1 {
+    font-size: 2.2rem;
   }
 }
 
@@ -406,8 +563,16 @@ body {
   #flyoutMenu.hide {
     transform: translate3d(-100vw, 0, 0);
   }
-  .fav__artists__div {
-    margin: 0 -15%;
+  .dashboard__intro {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+  .buttons__heading > h1{
+    font-size: 1.5rem;
+  }
+  .greeting {
+    font-size: 1.5rem;
+    padding: 15px;
   }
   .track-history__item {
     font-size: 1rem;
@@ -419,9 +584,28 @@ body {
   .track-history__image {
     margin-right: 12px;
   }
+  .favorite__banner {
+    width: 80%;
+  }
+  .search-buttons-top {
+    padding: 10px;
+    padding-bottom: 0;
+  }
+  .each__artist > h1 {
+    font-size: 1.7rem;
+  }
+  .fav__text {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 400px) {
+  .dashboard__image {
+    width: 100%;
+  }
+  .dashboard__intro {
+    font-size: 1.5rem;
+  }
   .name {
     font-size: 35px;
   }
@@ -431,40 +615,25 @@ body {
     width: 70%;
   }
   .track-history__item {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .search-buttons .btn {
     margin: 0.6rem;
-  }
-  .search-buttons-top {
-    margin: 0 -5%;
-  }
-  .happy__div {
-    margin: 0 -5%;
-  }
-  .sad__div {
-    margin: 0 -5%;
-  }
-  .dance__div {
-    margin: 0 -5%;
-  }
-  .bittersweet__div {
-    margin: 0 -5%;
-  }
-  .fav__songs__div {
-    margin: 0 -5%;
-  }
-  .fav__songs__cover__text {
-    margin: 0 -5%;
-    margin-top: -11%;
-  }
-  .container__div {
-    margin: 0 -5%;
   }
   .order-number {
     font-size: 0.8rem;
   }
   .main-heading {
     font-size: 2.8rem;
+  }
+  .fav__artist__image {
+    width: 37%;
+  }
+  .each__artist > h1 {
+    font-size: 1.5rem;
+  }
+  .fav__text {
+    font-size: 1.2rem;
+    padding-bottom: 30px;
   }
 }

@@ -22,7 +22,7 @@ function SearchSimilarResult(props) {
       {artists.length > 0 && (
           artists.map((artist, index) => {
             return (
-              <div className='container__div'>
+              <div key={index} className='container__div'>
                 <Fade bottom>
                   <a href={artist.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="track-history__item" style={{ textDecoration: 'none' }} >
                     <div className="order-number">{index + 1}</div>

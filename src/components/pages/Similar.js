@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Suspense} from 'react';
 import { getRelatedArtists, setFetchedSimilar } from '../../actions/results';
 import * as SpotifyFunctions from '../spotifyFunctions.js'
-import Header from '../Header';
 import { connect } from 'react-redux';
 import SearchSimilar from '../search/SearchSimilar';
-import SearchSimilarResult from '../search/SearchSimilarResult';
+
+const SearchSimilarResult = React.lazy(() => import('../search/SearchSimilarResult'));
 
 function Similar(props) {
   const { isValidSession, history } = props;
@@ -61,8 +61,9 @@ function Similar(props) {
   let ids = Object.keys(known).slice(0, 3);
 
   return (
-    <div>
-      <Header image={imageUrl} />
+    <div
+      style={{ minHeight: '100vh', backgroundImage: 'linear-gradient(to right, rgba(89, 91, 131,1), rgba(89, 91, 131,0.8))' }}
+    >
       {favArtists.length > 1 ? (
         <div className="fav__text">
           Yes, all of us love {favArtists[0].name}. And {favArtists[1].name}? The best. But here are a few other artists you're going to love.
@@ -70,7 +71,11 @@ function Similar(props) {
         <div></div>
       }
       {!fetchedSimilar && <SearchSimilar handleSearch={handleSearch} ids={ids} />}
-      { related.length === 60 && fetchedSimilar && <SearchSimilarResult known={known} related={related} /> }
+      { related.length === 60 && fetchedSimilar && (
+        <Suspense fallback={<div></div>}>
+          <SearchSimilarResult known={known} related={related} />
+        </Suspense>
+      )}
     </div>
   )
 }

@@ -11,7 +11,8 @@ function DanceList({ danceSongs }) {
       </div>
       {danceSongs.length > 0 && (
         danceSongs.map((song, index) => (
-            <div key={index} className='container__div'>
+          <div key={index} style={{ backgroundColor: '#2f3233' }}>
+            <div className='container__div'>
               <Fade bottom>
                 <a href={song.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="track-history__item" style={{ textDecoration: 'none' }} >
                   <div className="order-number">{index + 1}</div>
@@ -26,6 +27,7 @@ function DanceList({ danceSongs }) {
                 </a>
               </Fade>
             </div>
+          </div>
           )
         )
       )}
