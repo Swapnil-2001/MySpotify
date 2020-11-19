@@ -43,7 +43,7 @@ function Top(props) {
       }
     }
     getTopTracks();
-  }, [])
+  }, [history, isValidSession])
 
   if (fetched) {
     result = { topTracks, topTracksRecent, topTracksVeryRecent };

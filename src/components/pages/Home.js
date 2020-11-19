@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Alert } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import Header from '../Header';
 import { Redirect } from 'react-router-dom';
+import loginImage from '../../images/login.png';
 
 function Home(props) {
   const {
@@ -23,24 +23,27 @@ function Home(props) {
   const { state } = location;
   const sessionExpired = state && state.session_expired;
   return (
-    <React.Fragment>
+    <>
       {isValidSession() ? (
         <Redirect to="/dashboard" />
       ) : (
         <div className="login">
-          <Header />
           {sessionExpired && (
             <Alert variant="info">Session expired. Please login again.</Alert>
           )}
-          <Button variant="outline-secondary" type="submit" onClick={handleLogin} style={{ fontWeight: '700' }}>
+          <div className="login__header__div">
+            <img src={loginImage} alt="login" className="login__image" />
+            <h1>Revisit your favorites, meet new artists.</h1>
+          </div>
+          <div style={{ fontSize: '1.2rem', color: '#00587a', fontWeight: '700', padding: '40px', textAlign: 'center' }}>
+             Whether you're in the mood to dance, take a trip down the memory lane, or shed a tear or two, there's always a song for you.
+          </div>
+          <Button variant="outline-secondary" type="submit" onClick={handleLogin}>
             Login with Spotify
           </Button>
-          <div style={{ fontSize: '1.2rem', color: '#00587a', fontWeight: '700', padding: '40px', textAlign: 'center' }}>
-            Revisit your favorites, meet new artists. Whether you're in the mood to dance, take a trip down the memory lane, or shed a tear or two, there's always a song for you.
-          </div>
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 }
 

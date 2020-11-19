@@ -37,7 +37,7 @@ function TopTracks(props) {
       }
     }
     getTopArtists();
-  }, [])
+  }, [history, isValidSession])
 
   return (
     <div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { connect } from 'react-redux';
-import Header from '../Header';
 import SentimentAnalyzer from '../sentiment/SentimentAnalyzer';
 import banner from '../../images/MySpotify-banner.png';
 import HappySongs from '../songs/HappySongs';
@@ -56,7 +55,7 @@ function Dashboard(props) {
       }
     }
     load();
-  }, [])
+  }, [history, isValidSession])
 
   function handleMouseDown(event) {
     setToggle(!toggle);
@@ -97,12 +96,14 @@ function Dashboard(props) {
             menuVisibility={toggle}
           />
         </div>
-        {latest !== null && Object.keys(latest).length > 0 &&
+        {Object.keys(latest).length > 0 &&
           latest.items.map((item, index) =>
             <SentimentAnalyzer key={index} id={item.track.id} />
           )
         }
-        {latest !== null && Object.keys(latest).length > 0 && sentiment.length === latest.items.length && !fetched && sentiment.map((item, index) => {
+        {Object.keys(latest).length > 0
+          && sentiment.length === latest.items.length
+          && !fetched && sentiment.map((item, index) => {
               if (index === latest.items.length - 1) {
                 currentFetch = true;
               }

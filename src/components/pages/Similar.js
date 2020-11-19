@@ -8,7 +8,6 @@ const SearchSimilarResult = React.lazy(() => import('../search/SearchSimilarResu
 
 function Similar(props) {
   const { isValidSession, history } = props;
-  const imageUrl = '';
   const [favArtists, setFavArtists] = useState([]);
   const [known, setKnown] = useState({});
 
@@ -39,7 +38,7 @@ function Similar(props) {
       }
     }
     getTopArtists();
-  }, [])
+  }, [history, isValidSession])
 
   function handleSearch(ids) {
     if (isValidSession()) {

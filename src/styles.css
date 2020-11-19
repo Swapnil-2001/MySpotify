@@ -108,11 +108,168 @@ body {
 
 
 
+/* SIMILAR  */
+
+.fav__text {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 60px 100px;
+  text-align: center;
+  color: #f7f7f7;
+}
+
+/* SIMILAR OVER */
+
+
+
+
+
+/* TOP */
+
+.fav__songs__div {
+  background-image: linear-gradient(to right, rgba(63, 63, 68, 1), rgba(63, 63, 68, 0.75));
+  text-align: center;
+}
+
+.fav__songs__cover {
+  position: relative;
+  width: 70%;
+  object-fit: contain;
+}
+
+/* TOP OVER */
+
+
+
+
+
+/* TOPTRACKS */
 
 .favorite__banner {
   width: 55%;
   object-fit: contain;
 }
+
+/* TOPTRACKS OVER */
+
+
+/* PAGES OVER */
+
+
+
+
+
+
+/* LISTS START */
+
+.mood-booster {
+  width: 60%;
+  z-index: -1;
+}
+
+.sad {
+  width: 60%;
+  z-index: -1;
+}
+
+.container__div {
+  margin: 0 50px;
+  background-color: white;
+}
+
+.container__div :hover {
+  background-color: #eeeeee;
+}
+
+.track-history__item {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+}
+
+.order-number {
+  margin: 0 30px;
+  color: #a6a6a4;
+  font-weight: 800;
+}
+
+.track__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.track__artist {
+  color: #373a40;
+  font-weight: bold;
+  white-space: initial;
+}
+
+.track-history__image {
+  object-fit: contain;
+  width: 75px;
+  margin-right: 30px;
+  border-radius: 10%;
+}
+
+.track__track-name {
+  color: #a6a6a4;
+  margin-top: 10px;
+  margin-bottom: 0.2em;
+  font-weight: bold;
+}
+
+/* DANCELIST */
+
+.dance__div {
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(117,121,231,1), rgba(117,121,231,0));
+}
+
+/* DANCELIST OVER */
+
+
+/* HAPPYLIST */
+
+.happy__div {
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(33,62,59,1), rgba(33,62,59,0.2));
+}
+
+/* HAPPYLIST OVER */
+
+
+/* MODERATE LIST */
+
+.bittersweet__div {
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(61, 126, 166,1), rgba(61, 126, 166,0));
+}
+
+/* MODERATE LIST OVER */
+
+
+/* SAD LIST */
+
+.sad__div {
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.1));
+}
+
+/* SAD LIST OVER */
+
+
+/* LISTS OVER */
+
+
+
+
+
+/* SEARCH STARTS */
 
 .moodButtons__div {
   background-image: linear-gradient(to bottom, rgba(250, 240, 175, 0.5), rgba(250, 240, 175, 1));
@@ -121,6 +278,87 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+.buttons__heading {
+  text-align: center;
+  margin: 0 30px;
+  margin-top: 3rem;
+  color: #7e8a97;
+}
+
+.search-buttons {
+  margin: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-buttons .btn {
+  margin: 0.8rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #778298;
+}
+
+.search-buttons .btn:focus {
+  box-shadow: none;
+}
+
+.search-buttons-top {
+  background-color: white;
+  padding: 15px 40px;
+  margin: 0;
+}
+
+.search-buttons-top .btn {
+  margin: 0.8rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #a6a6a4;
+}
+
+.search-buttons-top .btn:focus {
+  box-shadow: none;
+  color: #778298;
+}
+
+.search-buttons-top .btn:hover {
+  color: #778298;
+}
+
+.fav__button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  margin-top: 30px;
+}
+
+.similar__img {
+  width: 70%;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(10px 10px 10px #222);
+}
+
+.similar__button {
+  border: 2px solid #f7f7f7;
+  border-radius: 25px;
+  color: #f7f7f7;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 50px 0;
+}
+
+.similar__button:hover {
+  background-color: #f7f7f7;
+  color: #2f3233;
+}
+
+
+/* SEARCH ENDS */
+
 
 .btn {
   letter-spacing: 1px;
@@ -145,7 +383,7 @@ body {
   margin: 30px;
   margin-top: 0;
   padding-bottom: 20px;
-  border-bottom: 2px solid #29a19c;
+  border-bottom: 2px solid white;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -169,14 +407,18 @@ body {
 }
 
 .menu__links {
-  color: #29a19c;
+  color: white;
   font-weight: 700;
 }
 
+.menu__links:hover{
+  color: lightgray;
+}
+
 #flyoutMenu {
+  background-color: #373a40;
   width: 30vw;
   height: 100vh;
-  background-color: white;
   position: fixed;
   top: 0;
   left: 0;
@@ -193,36 +435,6 @@ body {
   overflow: hidden;
 }
 
-.happy__div {
-  text-align: center;
-  background-image: linear-gradient(to bottom, rgba(33,62,59,1), rgba(33,62,59,0.2));
-}
-
-.bittersweet__div {
-  text-align: center;
-  background-image: linear-gradient(to bottom, rgba(61, 126, 166,1), rgba(61, 126, 166,0));
-}
-
-.dance__div {
-  text-align: center;
-  background-image: linear-gradient(to bottom, rgba(117,121,231,1), rgba(117,121,231,0));
-}
-
-.mood-booster {
-  width: 60%;
-  z-index: -1;
-}
-
-.sad__div {
-  text-align: center;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.1));
-}
-
-.sad {
-  width: 60%;
-  z-index: -1;
-}
-
 .name {
   margin: 0 20px;
   margin-bottom: 4rem;
@@ -232,10 +444,33 @@ body {
 }
 
 .login {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  background-color: rgba(255, 248, 205,1);
+}
+
+.login > button {
+  margin-bottom: 30px;
+  font-weight: 700;
+  border: 2px solid #99a8b2;
+}
+
+.login__header__div {
+  display: flex;
+  align-items: center;
+  background-color: #2f3233;
+}
+
+.login__header__div > img {
+  width: 70%;
+  object-fit: contain;
+}
+
+.login__header__div > h1 {
+  color: #f7f7f7;
+  margin: 50px;
 }
 
 .login .btn {
@@ -257,49 +492,6 @@ body {
 
 .hide {
   display: none;
-}
-
-.fav__text {
-  font-size: 2rem;
-  font-weight: 700;
-  padding: 60px 100px;
-  text-align: center;
-  color: #f7f7f7;
-}
-
-.buttons__heading {
-  text-align: center;
-  margin: 0 30px;
-  margin-top: 3rem;
-  color: #7e8a97;
-}
-
-.similar__img {
-  width: 70%;
-  -webkit-filter: drop-shadow(5px 5px 5px #222);
-  filter: drop-shadow(10px 10px 10px #222);
-}
-
-.similar__button {
-  border: 2px solid #f7f7f7;
-  border-radius: 25px;
-  color: #f7f7f7;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin: 50px 0;
-}
-
-.similar__button:hover {
-  background-color: #f7f7f7;
-  color: #2f3233;
-}
-
-.fav__button {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 20px;
-  margin-top: 30px;
 }
 
 .loading {
@@ -361,48 +553,6 @@ body {
   margin-top: 0.5rem;
 }
 
-.search-buttons {
-  margin: 3rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-buttons .btn {
-  margin: 0.8rem;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  font-weight: bold;
-  color: #778298;
-}
-
-.search-buttons-top {
-  background-color: white;
-  padding: 15px 40px;
-  margin: 0;
-}
-
-.search-buttons-top .btn {
-  margin: 0.8rem;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  font-weight: bold;
-  color: #a6a6a4;
-}
-
-.search-buttons-top .btn:focus {
-  box-shadow: none;
-  color: #778298;
-}
-
-.search-buttons-top .btn:hover {
-  color: #778298;
-}
-
-.search-buttons .btn:focus {
-  box-shadow: none;
-}
-
 .container__div__fav {
   background-color: white;
 }
@@ -419,73 +569,22 @@ body {
   margin-top: -3%;
 }
 
-.fav__songs__div {
-  background-image: linear-gradient(to right, rgba(63, 63, 68, 1), rgba(63, 63, 68, 0.75));
-  text-align: center;
-}
-
-.fav__songs__cover {
-  position: relative;
-  width: 70%;
-  object-fit: contain;
-}
-
-.container__div {
-  margin: 0 50px;
-  background-color: white;
-}
-
-.container__div :hover {
-  background-color: #eeeeee;
-}
-
-.track-history__item {
-  padding: 1rem 0.75rem;
-  text-align: left;
-  font-size: 1rem;
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
-}
-
-.order-number {
-  margin: 0 30px;
-  color: #a6a6a4;
-  font-weight: 800;
-}
-
-.track__info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-right: 10px;
-}
-
 .track__summary {
   display: flex;
-  flex-direction: column-reverse; }
+  flex-direction: column-reverse;
+}
 
 .track__separator {
-  display: none; }
-
-.track__artist {
-  color: #373a40;
-  font-weight: bold;
-  white-space: initial;
+  display: none;
 }
 
-.track-history__image {
-  object-fit: contain;
-  width: 75px;
-  margin-right: 30px;
-  border-radius: 10%;
-}
-
-.track__track-name {
-  color: #a6a6a4;
-  margin-top: 10px;
-  margin-bottom: 0.2em;
-  font-weight: bold;
+@media (max-width: 1300px) {
+  .login__header__div {
+    flex-direction: column;
+  }
+  .login__header__div > img {
+    width: 100%;
+  }
 }
 
 @media (max-width: 920px) {
@@ -538,6 +637,9 @@ body {
   .each__artist {
     margin-top: 30px;
   }
+  .login__header__div > h1 {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -557,6 +659,9 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+  .login__header__div > h1 {
+    font-size: 1.8rem;
+  }
   #flyoutMenu {
     width: 100vw;
   }
@@ -600,6 +705,10 @@ body {
 }
 
 @media screen and (max-width: 400px) {
+  .login__header__div > h1 {
+    font-size: 1.4rem;
+    margin: 50px 30px;
+  }
   .dashboard__image {
     width: 100%;
   }
