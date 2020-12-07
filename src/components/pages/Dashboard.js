@@ -1,50 +1,36 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { connect } from 'react-redux';
+import * as SpotifyFunctions from '../spotifyFunctions.js'
 import SentimentAnalyzer from '../sentiment/SentimentAnalyzer';
-import banner from '../../images/MySpotify-banner.png';
 import HappySongs from '../songs/HappySongs';
 import DanceSongs from '../songs/DanceSongs';
 import SadSongs from '../songs/SadSongs';
 import ModerateSongs from '../songs/ModerateSongs';
-import * as SpotifyFunctions from '../spotifyFunctions.js'
 import Menu from '../Menu';
+import banner from '../../images/MySpotify-banner.png';
 import spotify from '../../images/spotify.png';
 import mood from '../../images/mood.png';
-
 const SearchResultLast = React.lazy(() => import('../search/SearchResultLast'));
 
 function Dashboard(props) {
   const hour = new Date().getHours();
-  let greeting = '';
-  if (hour > 5 && hour < 12) {
-    greeting = 'Good Morning';
-  } else if (hour >= 12 && hour < 17) {
-    greeting = 'Good Afternoon';
-  } else {
-    greeting = 'Good Evening';
-  }
+  let greeting = hour > 5 && hour < 12 ? 'Good Morning' : hour >= 12 && hour < 17 ? 'Good Afternoon' : 'Good Evening';
   const { isValidSession, history } = props;
-  let h = {};
-  let currentFetch = false;
+  let h = {}, currentFetch = false;
   const [toggle, setToggle] = useState(false);
   const [latest, setLatest] = useState({});
   const [selectedCategory, setSelectedCategory] = useState('happy');
-  const [user, setUser] = useState({ imageUrl: '', name: '' });
+  const [user, setUser] = useState('');
 
   useEffect(() => {
-    async function load() {
+    (async function() {
       if (isValidSession()) {
         const params = JSON.parse(localStorage.getItem('params'));
         await SpotifyFunctions.setAccessToken(params.access_token);
         const lastSongs = await SpotifyFunctions.getLatestSongs();
-        const res = await SpotifyFunctions.getProfilePic();
+        const profile = await SpotifyFunctions.getProfilePic();
         setLatest(lastSongs);
-        setUser(prev => {
-          return {
-            image: res.images.length > 0 ? res.images[0].url : '',
-            name: res.display_name
-          }
-        });
+        setUser(profile.display_name);
       } else {
         history.push({
           pathname: '/',
@@ -53,8 +39,7 @@ function Dashboard(props) {
           }
         });
       }
-    }
-    load();
+    })();
   }, [history, isValidSession])
 
   function handleMouseDown(event) {
@@ -66,12 +51,12 @@ function Dashboard(props) {
   const result = { happySongs, danceSongs, sadSongs, moderateSongs };
 
   return (
-    <React.Fragment>
+    <>
       <div className="banner__div">
         <img src={banner} alt="banner" className="banner" />
-        {user.name && (
+        {user && (
           <div style={{ textAlign: 'center' }}>
-            <h1 className="greeting">{greeting}, {user.name}</h1>
+            <h1 className="greeting">{greeting}, {user}</h1>
           </div>
         )}
       </div>
@@ -138,7 +123,7 @@ function Dashboard(props) {
             }
           )
         }
-        {fetched || currentFetch ? (
+        {currentFetch || fetched ? (
           <Suspense fallback={<div></div>}>
             <SearchResultLast
               result={result}
@@ -148,7 +133,7 @@ function Dashboard(props) {
           </Suspense>
         ) : <div></div>}
       </div>
-    </React.Fragment>
+    </>
   );
 }
 
