@@ -49,7 +49,7 @@ export const getHappySongs = (id) => {
     try {
       const API_URL = `https://api.spotify.com/v1/tracks/${id}`;
       const result = await get(API_URL);
-      return dispatch(setHappySongs(result));
+      dispatch(setHappySongs(result));
     } catch (error) {
       console.log('error', error);
     }
