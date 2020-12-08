@@ -172,6 +172,10 @@ body {
   z-index: -1;
 }
 
+.list__wrapper {
+  padding: 50px 0;
+}
+
 .container__div {
   margin: 0 50px;
   background-color: white;
@@ -227,7 +231,7 @@ body {
 
 .dance__div {
   text-align: center;
-  background-image: linear-gradient(to bottom, rgba(117,121,231,1), rgba(117,121,231,0));
+  background-image: linear-gradient(to bottom, rgba(147, 171, 211,1), rgba(147, 171, 211,0.3));
 }
 
 /* DANCELIST OVER */
@@ -237,7 +241,7 @@ body {
 
 .happy__div {
   text-align: center;
-  background-image: linear-gradient(to bottom, rgba(33,62,59,1), rgba(33,62,59,0.2));
+  background-image: linear-gradient(to bottom, rgba(152, 172, 248,1), rgba(152, 172, 248,0.2));
 }
 
 /* HAPPYLIST OVER */
@@ -247,7 +251,7 @@ body {
 
 .bittersweet__div {
   text-align: center;
-  background-image: linear-gradient(to bottom, rgba(61, 126, 166,1), rgba(61, 126, 166,0));
+  background-image: linear-gradient(to bottom, rgba(150, 187, 124,1), rgba(150, 187, 124,0.3));
 }
 
 /* MODERATE LIST OVER */
@@ -659,6 +663,9 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+  .list__wrapper {
+    padding: 0;
+  }
   .login__header__div > h1 {
     font-size: 1.8rem;
   }

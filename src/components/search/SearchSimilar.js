@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import similar from '../../images/similar.jpg';
 
 function SearchSimilar({ handleSearch, ids }) {
-  const handleClick = (event) => {
+  const handleClick = event => {
     event.preventDefault();
     handleSearch(ids);
   };

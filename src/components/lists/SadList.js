@@ -3,16 +3,15 @@ import music from '../../images/music.jpeg';
 import Fade from 'react-reveal/Fade';
 import _ from 'lodash';
 
-function SadList({ sadSongs }) {
-  return (
-    <React.Fragment>
-      <div className="sad__div">
-        <img src="https://i.scdn.co/image/ab67706f000000033c6c5a76712dd683af373183" alt="sad" className="sad" />
-      </div>
-      {sadSongs.length > 0 && (
-        sadSongs.map((song, index) => (
-          <div key={index} style={{ backgroundColor: '#495464' }}>
-            <div className='container__div'>
+const SadList = ({ sadSongs }) => (
+  <>
+    <div className="sad__div">
+      <img src="https://i.scdn.co/image/ab67706f000000033c6c5a76712dd683af373183" alt="sad" className="sad" />
+    </div>
+    {sadSongs.length > 0 &&
+      <div className="list__wrapper" style={{ backgroundColor: '#495464' }}>
+        {sadSongs.map((song, index) => (
+            <div key={index} className='container__div'>
               <Fade bottom>
                 <a href={song.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="track-history__item" style={{ textDecoration: 'none' }} >
                   <div className="order-number">{index + 1}</div>
@@ -27,11 +26,11 @@ function SadList({ sadSongs }) {
                 </a>
               </Fade>
             </div>
-          </div>
-        )
-      )
-    )}
-    </React.Fragment>
-  );
-};
+          )
+        )}
+      </div>
+    }
+  </>
+)
+
 export default SadList;

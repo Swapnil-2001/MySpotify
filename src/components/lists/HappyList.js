@@ -12,10 +12,10 @@ const HappyList = ({ happySongs }) => (
         className="mood-booster"
       />
     </div>
-    {happySongs.length > 0 && 
-      happySongs.map((song, index) => (
-        <div key={index} style={{ backgroundColor: '#495464' }}>
-          <div className='container__div'>
+    {happySongs.length > 0 &&
+      <div className="list__wrapper" style={{ backgroundColor: '#495464' }}>
+        {happySongs.map((song, index) => (
+          <div key={index} className='container__div'>
             <Fade bottom>
               <a href={song.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="track-history__item" style={{ textDecoration: 'none' }} >
                 <div className="order-number">{index + 1}</div>
@@ -30,9 +30,9 @@ const HappyList = ({ happySongs }) => (
               </a>
             </Fade>
           </div>
-        </div>
-       )
-     )
+         )
+       )}
+      </div>
     }
   </>
 )

@@ -1,19 +1,18 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-function SearchFav(props) {
-  const handleSearch = (event) => {
+function SearchFav({ fav }) {
+  const handleSearch = event => {
     event.preventDefault();
-    props.fav();
+    fav();
   };
   return (
-    <div>
-      <Form onSubmit={handleSearch}>
-        <Button variant="info" type="submit">
-          Favorite
-        </Button>
-      </Form>
-    </div>
+    <Form onSubmit={handleSearch}>
+      <Button variant="info" type="submit">
+        Favorite
+      </Button>
+    </Form>
   );
 };
+
 export default SearchFav;
