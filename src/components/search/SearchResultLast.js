@@ -1,6 +1,6 @@
 import React, { useEffect, Suspense } from 'react';
-import _ from 'lodash';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { setFetched } from '../../actions/results';
 
 const HappyList = React.lazy(() => import('../lists/HappyList'));
@@ -9,13 +9,13 @@ const ModerateList = React.lazy(() => import('../lists/ModerateList'));
 const SadList = React.lazy(() => import('../lists/SadList'));
 
 function SearchResultLast(props) {
-  const { result, selectedCategory, setCategory } = props;
+  const { result, selectedCategory, setCategory, dispatch } = props;
   const { happySongs, danceSongs, sadSongs, moderateSongs } = result;
   useEffect(() => {
-    props.dispatch(setFetched());
-  }, [])
+    dispatch(setFetched());
+  }, [dispatch])
   return (
-    <React.Fragment>
+    <>
       <div className="moodButtons__div">
         <div className="buttons__heading">
           <h1>Right now I'm in the mood for a song that is</h1>
@@ -83,7 +83,7 @@ function SearchResultLast(props) {
           </Suspense>
         )}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 export default connect()(SearchResultLast);
