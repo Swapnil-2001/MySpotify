@@ -6,7 +6,7 @@ function SearchTopTracks(props) {
   const { result, selectedCategory, setCategory } = props;
   const { topTracks, topTracksRecent, topTracksVeryRecent } = result;
   return (
-    <React.Fragment>
+    <>
       <div className="search-buttons-top">
         {!_.isEmpty(topTracks) && (
           <button
@@ -84,7 +84,7 @@ function SearchTopTracks(props) {
          )
        )}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 export default SearchTopTracks;

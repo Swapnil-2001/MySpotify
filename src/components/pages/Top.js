@@ -16,7 +16,7 @@ function Top(props) {
   const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
-    async function getTopTracks() {
+    (async function() {
       if (isValidSession()) {
         const params = JSON.parse(localStorage.getItem('params'));
         await SpotifyFunctions.setAccessToken(params.access_token);
@@ -41,8 +41,7 @@ function Top(props) {
           }
         });
       }
-    }
-    getTopTracks();
+    })();
   }, [history, isValidSession])
 
   if (fetched) {
@@ -50,11 +49,11 @@ function Top(props) {
   }
 
   return (
-    <div>
+    <>
       <div className='fav__songs__div'>
         <img src={fav} alt="music" className="fav__songs__cover" />
       </div>
-      {fetched && (
+      {fetched &&
         <Suspense fallback={<div></div>}>
           <SearchTopTracks
             result={result}
@@ -62,8 +61,8 @@ function Top(props) {
             setCategory={setSelectedCategory}
           />
         </Suspense>
-      )}
-    </div>
+      }
+    </>
   )
 }
 

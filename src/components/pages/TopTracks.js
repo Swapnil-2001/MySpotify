@@ -11,14 +11,14 @@ function TopTracks(props) {
   const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
-    async function getTopArtists() {
+    (async function() {
       if (isValidSession()) {
         const params = JSON.parse(localStorage.getItem('params'));
         await SpotifyFunctions.setAccessToken(params.access_token);
         const artists = await SpotifyFunctions.getFavArtists();
         artists.items.forEach(artist => {
           const { id, name, images } = artist;
-          const url = images[0].url;
+          const url = images.length > 0 ? images[0].url : '';
           setFavArtists(prev => {
             return [
               ...prev,
@@ -35,12 +35,11 @@ function TopTracks(props) {
           }
         });
       }
-    }
-    getTopArtists();
+    })();
   }, [history, isValidSession])
 
   return (
-    <div>
+    <>
       {fetched && (
         <div style={{ textAlign: 'center', backgroundImage: 'linear-gradient(to right, rgba(47, 50, 51, 0.5), rgba(47, 50, 51, 1))' }}>
           <img src={perform} alt="perform" className="favorite__banner" />
@@ -49,7 +48,7 @@ function TopTracks(props) {
           </Suspense>
         </div>
       )}
-    </div>
+    </>
   )
 }
 
