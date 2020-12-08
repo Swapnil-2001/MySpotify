@@ -6,9 +6,14 @@ import Menu from '../Menu';
 import banner from '../../images/MySpotify-banner.png';
 import spotify from '../../images/spotify.png';
 import mood from '../../images/mood.png';
+import { css } from "@emotion/core";
+import ScaleLoader from "react-spinners/ScaleLoader";
 const SearchResultLast = React.lazy(() => import('../search/SearchResultLast'));
 
 function Dashboard(props) {
+  const override = css`
+    padding: 20px;
+  `;
   const hour = new Date().getHours();
   let greeting = hour > 5 && hour < 12 ? 'Good Morning' : hour >= 12 && hour < 17 ? 'Good Afternoon' : 'Good Evening';
   const { isValidSession, history, dispatch, sentiment, fetched } = props;
@@ -99,7 +104,7 @@ function Dashboard(props) {
           menuVisibility={toggle}
         />
       </div>
-      {(currentFetch || fetched) && (
+      {(currentFetch || fetched) ? (
         <Suspense fallback={<div></div>}>
           <SearchResultLast
             result={result}
@@ -107,7 +112,18 @@ function Dashboard(props) {
             setCategory={setSelectedCategory}
           />
         </Suspense>
-      )}
+      ) :
+        <div style={{ height: '100px', backgroundColor: '#fae0df', textAlign: 'center' }}>
+          <ScaleLoader
+            css={override}
+            height={35}
+            width={4}
+            radius={2}
+            color={"#a6a6a4"}
+            loading={!(currentFetch || fetched)}
+          />
+        </div>
+      }
     </>
   );
 }
