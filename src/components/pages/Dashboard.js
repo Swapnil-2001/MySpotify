@@ -71,11 +71,18 @@ function Dashboard(props) {
     event.stopPropagation();
   }
 
+  const handleMenu = event => {
+    if (toggle) {
+      setToggle(!toggle);
+      event.stopPropagation();
+    }
+  }
+
   const { happySongs, sadSongs, moderateSongs, danceSongs } = props;
   const result = { happySongs, danceSongs, sadSongs, moderateSongs };
 
   return (
-    <>
+    <div onClick={handleMenu}>
       <div className="banner__div">
         <img src={banner} alt="banner" className="banner" />
         {user && (
@@ -97,7 +104,7 @@ function Dashboard(props) {
           Click on the button to explore more.
         </div>
         <div style={{ textAlign: 'center', marginTop: '30px', marginBottom: '40px' }}>
-          <img src={spotify} alt="hamburger" onMouseDown={handleMouseDown} className="hamburger" />
+          <img src={spotify} alt="hamburger" onClick={handleMouseDown} className="hamburger" />
         </div>
         <Menu
           handleMouseDown={handleMouseDown}
@@ -124,7 +131,7 @@ function Dashboard(props) {
           />
         </div>
       }
-    </>
+    </div>
   );
 }
 
