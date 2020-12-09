@@ -2,11 +2,16 @@ import React, {useState, useEffect, Suspense} from 'react';
 import * as SpotifyFunctions from '../spotifyFunctions.js'
 import { connect } from 'react-redux';
 import fav from '../../images/favorite.png';
+import { css } from "@emotion/core";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const SearchTopTracks = React.lazy(() => import('../search/SearchTopTracks'));
 
 function Top(props) {
   const { isValidSession, history } = props;
+  const override = css`
+    padding: 40px 20px;
+  `;
   let result = {};
 
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -53,7 +58,7 @@ function Top(props) {
       <div className='fav__songs__div'>
         <img src={fav} alt="music" className="fav__songs__cover" />
       </div>
-      {fetched &&
+      {fetched ? (
         <Suspense fallback={<div></div>}>
           <SearchTopTracks
             result={result}
@@ -61,6 +66,17 @@ function Top(props) {
             setCategory={setSelectedCategory}
           />
         </Suspense>
+      ) :
+        <div style={{ height: '100px', textAlign: 'center' }}>
+          <ScaleLoader
+            css={override}
+            height={35}
+            width={4}
+            radius={2}
+            color={"#153e90"}
+            loading={!fetched}
+          />
+        </div>
       }
     </>
   )

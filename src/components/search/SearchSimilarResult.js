@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import Fade from 'react-reveal/Fade';
 import music from '../../images/music.jpeg';
 
-function SearchSimilarResult({ known, related }) {
-  let h = {}, artists = [];
-  Object.keys(known).forEach(id => {
-    h[id] = true;
-  })
-  related.forEach(artist => {
-    if (!(artist.id in h)) {
-      h[artist.id] = true;
-      artists.push(artist);
+function SearchSimilarResult({ known, related, setLoading }) {
+  const [artists, setArtists] = useState([]);
+  useEffect(() => {
+    if (artists.length === 0) {
+      let h = {};
+      Object.keys(known).forEach(id => {
+        h[id] = true;
+      })
+      related.forEach(artist => {
+        if (!(artist.id in h)) {
+          h[artist.id] = true;
+          setArtists(prev => [...prev, artist]);
+        }
+      })
+      setLoading(false);
     }
-  })
+  }, [setLoading, artists.length, known, related])
   return (
     <>
       {artists.length > 0 &&

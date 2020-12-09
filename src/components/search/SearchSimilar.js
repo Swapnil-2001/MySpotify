@@ -1,10 +1,14 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import similar from '../../images/similar.jpg';
+import { connect } from 'react-redux';
+import { setFetchedSimilar } from '../../actions/results';
 
-function SearchSimilar({ handleSearch, ids }) {
+function SearchSimilar(props) {
+  const { handleSearch, ids, dispatch } = props;
   const handleClick = event => {
     event.preventDefault();
+    dispatch(setFetchedSimilar());
     handleSearch(ids);
   };
   return (
@@ -20,4 +24,4 @@ function SearchSimilar({ handleSearch, ids }) {
     </div>
   );
 };
-export default SearchSimilar;
+export default connect()(SearchSimilar);
