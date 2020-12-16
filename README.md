@@ -12,7 +12,7 @@
 
 <br />
 
-*All you need is a Spotify account, and you're good to go!* And the app is a **Progressive Web App**, which means you can also, if you want, install it into your mobile device or desktop.
+*All you need is a Spotify account(Free/Premium), and you're good to go!* And the app is a **Progressive Web App**, which means you can also, if you want, install it into your mobile device or desktop.
 
 
 I've used Redux for state management. The app is entirely client-side. It makes use of the [Spotify Web API](https://developer.spotify.com/documentation/web-api/) to access data. Hosting is done on [Firebase](https://firebase.google.com/). The design of the app was largely inspired by [Replayify](https://replayify.com/).
