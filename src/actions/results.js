@@ -68,6 +68,7 @@ export const getDanceSongs = id => async (dispatch) => {
 
 export const getRelatedArtists = id => async (dispatch) => {
   try {
+    console.log('related');
     const relatedArtists = await SpotifyFunctions.getRelatedArtists(id);
     dispatch(setSimilar(relatedArtists.artists));
   } catch (error) {

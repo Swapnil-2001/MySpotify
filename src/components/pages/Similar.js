@@ -3,12 +3,18 @@ import * as SpotifyFunctions from '../spotifyFunctions.js';
 import { connect } from 'react-redux';
 import { getRelatedArtists, setFetchedSimilar } from '../../actions/results';
 import SearchSimilar from '../search/SearchSimilar';
+import { css } from "@emotion/core";
+import ScaleLoader from "react-spinners/ScaleLoader";
 const SearchSimilarResult = React.lazy(() => import('../search/SearchSimilarResult'));
 
 function Similar(props) {
+  const override = css`
+    padding: 20px;
+  `;
   const { isValidSession, history, dispatch } = props;
   const [favArtists, setFavArtists] = useState([]);
   const [known, setKnown] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async function() {
@@ -40,6 +46,7 @@ function Similar(props) {
 
   const handleSearch = ids => {
     if (isValidSession()) {
+      setLoading(true);
       ids && ids.forEach(id => {
         dispatch(getRelatedArtists(id));
       })
@@ -64,12 +71,24 @@ function Similar(props) {
       {favArtists.length > 1 && (
         <div className="fav__text">
           Yes, all of us love {favArtists[0].name}. And {favArtists[1].name}? The best. But here are a few other artists you're going to love.
-        </div>  
+        </div>
       )}
       {!fetchedSimilar && <SearchSimilar handleSearch={handleSearch} ids={ids} />}
-      { related.length === 60 && fetchedSimilar && (
+      {loading && (
+        <div style={{ height: '100px', textAlign: 'center' }}>
+          <ScaleLoader
+            css={override}
+            height={35}
+            width={4}
+            radius={2}
+            color={"white"}
+            loading={true}
+          />
+        </div>
+      )}
+      {related.length === 60 && fetchedSimilar && (
         <Suspense fallback={<div></div>}>
-          <SearchSimilarResult known={known} related={related} />
+          <SearchSimilarResult setLoading={setLoading} known={known} related={related} />
         </Suspense>
       )}
     </div>
